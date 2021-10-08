@@ -1,25 +1,315 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { CountryCard } from './components/CountryCard';
 
 function App() {
+  const cs = [
+    {
+      name: 'Germany',
+      topLevelDomain: ['.de'],
+      alpha2Code: 'DE',
+      alpha3Code: 'DEU',
+      callingCodes: ['49'],
+      capital: 'Berlin',
+      altSpellings: [
+        'DE',
+        'Federal Republic of Germany',
+        'Bundesrepublik Deutschland',
+      ],
+      region: 'Europe',
+      subregion: 'Western Europe',
+      population: 81770900,
+      latlng: [51, 9],
+      demonym: 'German',
+      area: 357114,
+      gini: 28.3,
+      timezones: ['UTC+01:00'],
+      borders: ['AUT', 'BEL', 'CZE', 'DNK', 'FRA', 'LUX', 'NLD', 'POL', 'CHE'],
+      nativeName: 'Deutschland',
+      numericCode: '276',
+      currencies: [
+        {
+          code: 'EUR',
+          name: 'Euro',
+          symbol: '€',
+        },
+      ],
+      languages: [
+        {
+          iso639_1: 'de',
+          iso639_2: 'deu',
+          name: 'German',
+          nativeName: 'Deutsch',
+        },
+      ],
+      translations: {
+        br: 'Alemanha',
+        de: 'Deutschland',
+        es: 'Alemania',
+        fa: 'آلمان',
+        fr: 'Allemagne',
+        hr: 'Njemačka',
+        it: 'Germania',
+        ja: 'ドイツ',
+        nl: 'Duitsland',
+        pt: 'Alemanha',
+      },
+      flag: 'https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/1200px-Flag_of_Germany.svg.png',
+      regionalBlocs: [
+        {
+          acronym: 'EU',
+          name: 'European Union',
+        },
+      ],
+      cioc: 'GER',
+    },
+    {
+      name: 'Germany',
+      topLevelDomain: ['.de'],
+      alpha2Code: 'DE',
+      alpha3Code: 'DEU',
+      callingCodes: ['49'],
+      capital: 'Berlin',
+      altSpellings: [
+        'DE',
+        'Federal Republic of Germany',
+        'Bundesrepublik Deutschland',
+      ],
+      region: 'Europe',
+      subregion: 'Western Europe',
+      population: 81770900,
+      latlng: [51, 9],
+      demonym: 'German',
+      area: 357114,
+      gini: 28.3,
+      timezones: ['UTC+01:00'],
+      borders: ['AUT', 'BEL', 'CZE', 'DNK', 'FRA', 'LUX', 'NLD', 'POL', 'CHE'],
+      nativeName: 'Deutschland',
+      numericCode: '276',
+      currencies: [
+        {
+          code: 'EUR',
+          name: 'Euro',
+          symbol: '€',
+        },
+      ],
+      languages: [
+        {
+          iso639_1: 'de',
+          iso639_2: 'deu',
+          name: 'German',
+          nativeName: 'Deutsch',
+        },
+      ],
+      translations: {
+        br: 'Alemanha',
+        de: 'Deutschland',
+        es: 'Alemania',
+        fa: 'آلمان',
+        fr: 'Allemagne',
+        hr: 'Njemačka',
+        it: 'Germania',
+        ja: 'ドイツ',
+        nl: 'Duitsland',
+        pt: 'Alemanha',
+      },
+      flag: 'https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/1200px-Flag_of_Germany.svg.png',
+      regionalBlocs: [
+        {
+          acronym: 'EU',
+          name: 'European Union',
+        },
+      ],
+      cioc: 'GER',
+    },
+    {
+      name: 'Germany',
+      topLevelDomain: ['.de'],
+      alpha2Code: 'DE',
+      alpha3Code: 'DEU',
+      callingCodes: ['49'],
+      capital: 'Berlin',
+      altSpellings: [
+        'DE',
+        'Federal Republic of Germany',
+        'Bundesrepublik Deutschland',
+      ],
+      region: 'Europe',
+      subregion: 'Western Europe',
+      population: 81770900,
+      latlng: [51, 9],
+      demonym: 'German',
+      area: 357114,
+      gini: 28.3,
+      timezones: ['UTC+01:00'],
+      borders: ['AUT', 'BEL', 'CZE', 'DNK', 'FRA', 'LUX', 'NLD', 'POL', 'CHE'],
+      nativeName: 'Deutschland',
+      numericCode: '276',
+      currencies: [
+        {
+          code: 'EUR',
+          name: 'Euro',
+          symbol: '€',
+        },
+      ],
+      languages: [
+        {
+          iso639_1: 'de',
+          iso639_2: 'deu',
+          name: 'German',
+          nativeName: 'Deutsch',
+        },
+      ],
+      translations: {
+        br: 'Alemanha',
+        de: 'Deutschland',
+        es: 'Alemania',
+        fa: 'آلمان',
+        fr: 'Allemagne',
+        hr: 'Njemačka',
+        it: 'Germania',
+        ja: 'ドイツ',
+        nl: 'Duitsland',
+        pt: 'Alemanha',
+      },
+      flag: 'https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/1200px-Flag_of_Germany.svg.png',
+      regionalBlocs: [
+        {
+          acronym: 'EU',
+          name: 'European Union',
+        },
+      ],
+      cioc: 'GER',
+    },
+    {
+      name: 'Germany',
+      topLevelDomain: ['.de'],
+      alpha2Code: 'DE',
+      alpha3Code: 'DEU',
+      callingCodes: ['49'],
+      capital: 'Berlin',
+      altSpellings: [
+        'DE',
+        'Federal Republic of Germany',
+        'Bundesrepublik Deutschland',
+      ],
+      region: 'Europe',
+      subregion: 'Western Europe',
+      population: 81770900,
+      latlng: [51, 9],
+      demonym: 'German',
+      area: 357114,
+      gini: 28.3,
+      timezones: ['UTC+01:00'],
+      borders: ['AUT', 'BEL', 'CZE', 'DNK', 'FRA', 'LUX', 'NLD', 'POL', 'CHE'],
+      nativeName: 'Deutschland',
+      numericCode: '276',
+      currencies: [
+        {
+          code: 'EUR',
+          name: 'Euro',
+          symbol: '€',
+        },
+      ],
+      languages: [
+        {
+          iso639_1: 'de',
+          iso639_2: 'deu',
+          name: 'German',
+          nativeName: 'Deutsch',
+        },
+      ],
+      translations: {
+        br: 'Alemanha',
+        de: 'Deutschland',
+        es: 'Alemania',
+        fa: 'آلمان',
+        fr: 'Allemagne',
+        hr: 'Njemačka',
+        it: 'Germania',
+        ja: 'ドイツ',
+        nl: 'Duitsland',
+        pt: 'Alemanha',
+      },
+      flag: 'https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/1200px-Flag_of_Germany.svg.png',
+      regionalBlocs: [
+        {
+          acronym: 'EU',
+          name: 'European Union',
+        },
+      ],
+      cioc: 'GER',
+    },
+    {
+      name: 'Germany',
+      topLevelDomain: ['.de'],
+      alpha2Code: 'DE',
+      alpha3Code: 'DEU',
+      callingCodes: ['49'],
+      capital: 'Berlin',
+      altSpellings: [
+        'DE',
+        'Federal Republic of Germany',
+        'Bundesrepublik Deutschland',
+      ],
+      region: 'Europe',
+      subregion: 'Western Europe',
+      population: 81770900,
+      latlng: [51, 9],
+      demonym: 'German',
+      area: 357114,
+      gini: 28.3,
+      timezones: ['UTC+01:00'],
+      borders: ['AUT', 'BEL', 'CZE', 'DNK', 'FRA', 'LUX', 'NLD', 'POL', 'CHE'],
+      nativeName: 'Deutschland',
+      numericCode: '276',
+      currencies: [
+        {
+          code: 'EUR',
+          name: 'Euro',
+          symbol: '€',
+        },
+      ],
+      languages: [
+        {
+          iso639_1: 'de',
+          iso639_2: 'deu',
+          name: 'German',
+          nativeName: 'Deutsch',
+        },
+      ],
+      translations: {
+        br: 'Alemanha',
+        de: 'Deutschland',
+        es: 'Alemania',
+        fa: 'آلمان',
+        fr: 'Allemagne',
+        hr: 'Njemačka',
+        it: 'Germania',
+        ja: 'ドイツ',
+        nl: 'Duitsland',
+        pt: 'Alemanha',
+      },
+      flag: 'https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/1200px-Flag_of_Germany.svg.png',
+      regionalBlocs: [
+        {
+          acronym: 'EU',
+          name: 'European Union',
+        },
+      ],
+      cioc: 'GER',
+    },
+  ];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="countries-cards">
+        {cs.map((c) => (
+          <CountryCard key={c.name} {...c} />
+        ))}
+      </div>
+    </>
   );
 }
 

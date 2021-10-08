@@ -25,15 +25,15 @@ export const CountryCard = ({
           <h3 className="title">{name}</h3>
           <ul className="details">
             <li>
-              <span className="bold">Population:</span>
+              <span className="bold">Population: </span>
               {population}
             </li>
             <li>
-              <span className="bold">Region:</span>
+              <span className="bold">Region: </span>
               {region}
             </li>
             <li>
-              <span className="bold">Capital:</span>
+              <span className="bold">Capital: </span>
               {capital}
             </li>
           </ul>
