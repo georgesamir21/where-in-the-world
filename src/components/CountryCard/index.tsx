@@ -23,7 +23,7 @@ export const CountryCard = ({
         </div>
         <div className="card__content">
           <h3 className="title">{name}</h3>
-          <ul className="details">
+          <ul className="details list-style-none">
             <li>
               <span className="bold">Population: </span>
               {population}
