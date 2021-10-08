@@ -1,0 +1,35 @@
+@import "../../variables";
+.card {
+    background-color: $white;
+    border-radius: 8px;
+    max-width: 300px;
+    box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.75);
+
+    &__image {
+        img {
+            border-radius: 8px 8px 0 0;
+            width: 300px;
+        }
+
+
+    }
+
+    &__content {
+        padding: 0 30px 30px 30px;
+        .title {
+
+        }
+
+        .details {
+            list-style: none;
+            padding-inline-start: 0;
+
+            li {
+                .bold {
+                    font-weight: 600;
+                }
+            }
+
+        }
+    }
+}
