@@ -37,8 +37,9 @@ export const CountriesList = () => {
   if (!countries) return <h3>Loading ....</h3>;
   return (
     <>
-      <div>
+      <section className="search-and-filter d-flex-row space-between">
         <input
+          className="search-bar"
           type="text"
           name="country"
           placeholder="Search for a country..."
@@ -51,12 +52,12 @@ export const CountriesList = () => {
             </option>
           ))}
         </select>
-      </div>
-      <div className="countries d-flex-row">
+      </section>
+      <section className="countries d-flex-row">
         {countries.map((c) => (
           <CountryCard key={c.name} {...c} />
         ))}
-      </div>
+      </section>
     </>
   );
 };

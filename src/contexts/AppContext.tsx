@@ -2,10 +2,7 @@ import axios from 'axios';
 import {
   createContext,
   ReactNode,
-  useCallback,
   useContext,
-  useEffect,
-  useMemo,
 } from 'react';
 
 type Context = {

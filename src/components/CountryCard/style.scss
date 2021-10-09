@@ -1,25 +1,27 @@
 @import "../../variables";
+
 .card {
     background-color: $white;
     border-radius: 8px;
-    max-width: 300px;
+    // max-width: 300px;
+    width: 30%;
     box-shadow: $box-shadow;
+    flex: 0 1 calc(25% - 2em);
+    margin-bottom: 2.2em;
+
+    @media only screen and (max-width: 425px) {
+        width: 100%;
+        flex: 1 1 auto;
+    }
 
     &__image {
         img {
             border-radius: 8px 8px 0 0;
-            width: 300px;
+            width: 100%;
         }
-
-
     }
 
     &__content {
         padding: 0 30px 30px 30px;
-        .title {
-        }
-
-        .details {
-        }
     }
 }

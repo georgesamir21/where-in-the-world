@@ -1,4 +1,5 @@
 import './style.scss';
+// import flagPlacehlder from '../../../public/images/flag-placeholder.jpg';
 
 type Props = {
   flag?: string;
@@ -9,7 +10,7 @@ type Props = {
 };
 
 export const CountryCard = ({
-  flag,
+  flag = process.env.PUBLIC_URL + '/images/flag-placeholder.jpg',
   name,
   region,
   capital,

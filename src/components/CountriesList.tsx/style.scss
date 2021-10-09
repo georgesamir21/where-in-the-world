@@ -1,0 +1,30 @@
+@import "../../variables";
+
+.countries {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.search-and-filter {
+
+    margin-bottom: 2em;
+
+    .search-bar {
+        width: 40%;
+        height: 2em;
+        border: none;
+        border-radius: 8px;
+        padding: 1em;
+        color: $dark-gray;
+        box-shadow: $box-shadow;
+    
+        &:focus {
+            outline: none;
+        }
+    
+        @media only screen and (max-width: 425px) {
+            width: 100%;
+        }
+    }
+}

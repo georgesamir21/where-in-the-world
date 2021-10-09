@@ -8,7 +8,11 @@ body {
 }
 
 .container {
-  padding: 20px;
+  padding: 1em 2em;
+
+  @media only screen and (max-width: 425px) {
+    padding: 1em;
+  }
 }
 
 .bold {
@@ -22,4 +26,10 @@ body {
 
 .d-flex-row {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.space-between {
+  justify-content: space-between;
 }
