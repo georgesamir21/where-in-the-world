@@ -1,16 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
-@import 'node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss';
 @import "variables";
 
 body {
   background-color: $light-gray;
   margin: 0;
   font-family: 'Nunito Sans', sans-serif;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
 }
 
 .container {
