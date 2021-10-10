@@ -1,5 +1,4 @@
 import './style.scss';
-// import flagPlacehlder from '../../../public/images/flag-placeholder.jpg';
 
 type Props = {
   flag?: string;
@@ -14,7 +13,7 @@ export const CountryCard = ({
   name,
   region,
   capital,
-  population,
+  population = 80000,
 }: Props) => {
   return (
     <>
@@ -27,7 +26,7 @@ export const CountryCard = ({
           <ul className="details list-style-none">
             <li>
               <span className="bold">Population: </span>
-              {population}
+              {population ? Number(population).toLocaleString() : 'N/A'}
             </li>
             <li>
               <span className="bold">Region: </span>

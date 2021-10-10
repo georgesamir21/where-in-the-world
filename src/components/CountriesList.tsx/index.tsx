@@ -53,7 +53,7 @@ export const CountriesList = () => {
           ))}
         </select>
       </section>
-      <section className="countries d-flex-row">
+      <section className="countries">
         {countries.map((c) => (
           <CountryCard key={c.name} {...c} />
         ))}
