@@ -19,7 +19,7 @@ export const CountryCard = ({
 }: Props) => {
   const history = useHistory();
   const navigateToDetailsPage = () => {
-    history.push(name!);
+    history.push(`countries/${name}`);
   };
   return (
     <div className="card" onClick={navigateToDetailsPage}>

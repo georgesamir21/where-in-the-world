@@ -3,16 +3,22 @@ import { faMoon as lightMoon } from '@fortawesome/free-regular-svg-icons';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './style.scss';
+import { useState } from 'react';
 
 export const Header = () => {
+  const [darkModeEnabled, steDarkModeEnabled] = useState(false);
+
+  const toggleDarkMode = () => {
+    steDarkModeEnabled(!darkModeEnabled);
+  };
   return (
-    <header className="header">
+    <header className="header d-flex-row">
       <h1 className="app-title">Where in the world?</h1>
       <span>
-        <span className="dark-mode-toggle">
-          <FontAwesomeIcon icon={lightMoon} />
+        <a onClick={toggleDarkMode} className="dark-mode-toggle">
+          <FontAwesomeIcon icon={darkModeEnabled ? darkMoon : lightMoon} />
           Dark Mode
-        </span>
+        </a>
       </span>
     </header>
   );

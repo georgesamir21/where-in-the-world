@@ -18,12 +18,12 @@ function App() {
           <Route path="/" exact>
             <Redirect to="/countries" />
           </Route>
-          <Route path="/countries">
+          <Route path="/countries" exact>
             <CountriesContextProvider>
               <CountriesList />
             </CountriesContextProvider>
           </Route>
-          <Route path="countries/:countryName">
+          <Route path="/countries/:countryName">
             <CountryDetails />
           </Route>
         </BrowserRouter>

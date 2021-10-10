@@ -1,12 +1,10 @@
 @import "../../variables";
 .header {
-    display: flex;
     background-color: $white;
-    flex-direction: row;
-    justify-content: space-between;
     align-items: center;
-    padding: 30px;
+    padding: 1em 2em;
     box-shadow: $box-shadow;
+    cursor: pointer;
 
     .app-title {
         margin: 0;

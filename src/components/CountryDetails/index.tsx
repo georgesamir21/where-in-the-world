@@ -31,16 +31,16 @@ export const CountryDetails = () => {
 
   const {
     flag = process.env.PUBLIC_URL + '/images/flag-placeholder.jpg',
-    name,
-    nativeName,
+    name = '—',
+    nativeName = '—',
     population,
-    region,
-    subregion,
-    capital,
-    topLevelDomain,
-    currencies,
-    languages,
-    borders = ['Egypt', 'France', 'TEST'],
+    region = '—',
+    subregion = '—',
+    capital = '—',
+    topLevelDomain = '—',
+    currencies = [],
+    languages = [],
+    borders = ['—'],
   } = country[0];
 
   return (
