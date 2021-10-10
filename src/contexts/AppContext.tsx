@@ -22,9 +22,6 @@ export const AppContextProvider = ({
   access_token,
   children,
 }: Props) => {
-  //   const api = useCallback(() => axios.create({ baseURL }), [baseURL])();
-
-  console.log('AppContext Render....');
 
   const api = axios.create({ baseURL });
 

@@ -16,7 +16,6 @@ type Context = {
 const CountriesContext = createContext<Context | null>(null);
 
 export const CountriesContextProvider = ({ children }: Props) => {
-  console.log('Countries Context Render***');
   const [countries, setCountries] = useState<Country[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const appContext = useAppContext();
