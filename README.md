@@ -8,6 +8,7 @@ This is a solution to the [REST Countries API with color theme switcher task](ht
   - [The task](#the-task)
   - [Screenshot](#screenshot)
   - [Links](#links)
+  - [Setup](#setup)
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
@@ -38,6 +39,14 @@ Users should be able to:
 
 - Solution URL: [GitHub](https://github.com/georgesamir21/where-in-the-world)
 
+- Live URL [where-in-the-world-app](https://where-in-the-world-omega-silk.vercel.app/)
+
+### setup
+
+To have the app running on your machine
+- Create a `.env` file similar to the `.env.example` with your access_token and the apiURL of the service
+- Run `yarn install` or `npm install`
+- Run `yarn start` or `npm start`
 ## My process
 
 ### Built with
