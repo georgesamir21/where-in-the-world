@@ -1,16 +1,15 @@
-@import "../../variables";
 .header {
     background-color: var(--elements);
     align-items: center;
     padding: 1em 2em;
-    box-shadow: $box-shadow;
-    cursor: pointer;
-
+    box-shadow: var(--box-shadow);
+    
     .app-title {
         margin: 0;
     }
-
+    
     .dark-mode-toggle {
+        cursor: pointer;
         font-weight: 600;
     }
 }

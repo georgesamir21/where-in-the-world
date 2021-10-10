@@ -58,7 +58,7 @@ export const CountryDetails = () => {
                 <span className="bold">Native Name:</span> {nativeName}
               </li>
               <li>
-                <span className="bold">Population:</span>
+                <span className="bold">Population: </span>
                 {formatNumber(population!)}
               </li>
               <li>

@@ -1,5 +1,3 @@
-@import "../../variables";
-
 .card {
     background-color: var(--elements);
     border-radius: 8px;
@@ -7,6 +5,7 @@
     margin-right: 2.2em;
     width: calc(25% - 2.2em);
     cursor: pointer;
+    box-shadow: var(--box-shadow);
 
     @media screen and (max-width: 1024px){
         width: calc(33% - 2.2em);

@@ -1,3 +1,7 @@
+export type Theme = 'dark' | 'light';
+
+export type Region = 'asia' | 'africa' | 'americas' | 'oceania' | 'europe';
+
 export type Country = {
   name?: string;
   topLevelDomain?: string[];

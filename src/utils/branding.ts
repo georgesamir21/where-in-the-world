@@ -1,4 +1,6 @@
-export const changeTheme = (theme: 'dark' | 'light') => {
+import { Theme } from '../types/Countries';
+
+export const changeTheme = (theme: Theme) => {
   let cssRule;
   switch (theme) {
     case 'dark':

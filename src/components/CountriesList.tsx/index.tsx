@@ -2,6 +2,7 @@ import { ChangeEvent, useEffect } from 'react';
 import { debounce } from 'lodash';
 import { CountryCard } from '../CountryCard';
 import { useCountriesContext } from '../../contexts/CountriesContext';
+import { Region } from '../../types/Countries';
 import './style.scss';
 
 export const CountriesList = () => {
@@ -23,8 +24,8 @@ export const CountriesList = () => {
       value: 'africa',
     },
     {
-      label: 'America',
-      value: 'america',
+      label: 'Americas',
+      value: 'americas',
     },
     {
       label: 'Asia',
@@ -35,27 +36,28 @@ export const CountriesList = () => {
       value: 'europe',
     },
     {
-      label: 'Ocenia',
-      value: 'ocenia',
+      label: 'Oceania',
+      value: 'oceania',
     },
   ];
 
   const handleCountriesSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const countryName = e.target.value;
+    const countryName = e.target.value.trim();
+    if (!countryName) return;
     searchCountriesByName(countryName);
   };
 
   const handleRegionSelectionChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const region = e.target.value;
-    //@ts-ignore
-    filterCountreisByRegion(region);
+    if (!region) return;
+    filterCountreisByRegion(region as Region);
   };
   if (!countries && !error) return <h2>Loading...</h2>;
   return (
     <>
       <section className="search-and-filter d-flex-row margin-b-2em">
         <input
-          className="search-bar"
+          className="search-input margin-b-2em"
           type="text"
           name="country"
           placeholder="Search for a country..."
@@ -64,8 +66,9 @@ export const CountriesList = () => {
         <select
           onChange={(e) => handleRegionSelectionChange(e)}
           name="region"
-          placeholder="Filter by Region"
+          className="select"
         >
+          <option value="">Filter by Region</option>
           {regions.map(({ label, value }) => (
             <option key={value} value={value}>
               {label}
