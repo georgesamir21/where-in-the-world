@@ -2,8 +2,8 @@
 
 .countries {
     width: 100%;
-	display: flex;
-	flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .search-and-filter {
@@ -14,8 +14,9 @@
         border: none;
         border-radius: 8px;
         padding: 1em;
-        color: $dark-gray;
+        color: var(--input-color);
         box-shadow: $box-shadow;
+        background-color: var(--elements);
     
         &:focus {
             outline: none;

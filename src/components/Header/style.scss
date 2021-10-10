@@ -1,6 +1,6 @@
 @import "../../variables";
 .header {
-    background-color: $white;
+    background-color: var(--elements);
     align-items: center;
     padding: 1em 2em;
     box-shadow: $box-shadow;

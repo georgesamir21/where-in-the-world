@@ -1,7 +1,7 @@
 @import "../../variables";
 
 .card {
-    background-color: $white;
+    background-color: var(--elements);
     border-radius: 8px;
     margin-bottom: 2.2em;
     margin-right: 2.2em;

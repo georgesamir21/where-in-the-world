@@ -3,20 +3,32 @@ import { faMoon as lightMoon } from '@fortawesome/free-regular-svg-icons';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './style.scss';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { changeTheme } from '../../utils/branding';
 
 export const Header = () => {
-  const [darkModeEnabled, steDarkModeEnabled] = useState(false);
+  // initial theme is light
+  const [darkMode, setDarkMode] = useState<boolean>(
+    !!JSON.parse(localStorage.getItem('darkMode')!)
+  );
+  useEffect(() => {
+    changeTheme(darkMode ? 'dark' : 'light');
+    localStorage.setItem('darkMode', JSON.stringify(darkMode));
+  }, [darkMode]);
 
   const toggleDarkMode = () => {
-    steDarkModeEnabled(!darkModeEnabled);
+    setDarkMode(!darkMode);
   };
+
   return (
     <header className="header d-flex-row">
       <h1 className="app-title">Where in the world?</h1>
       <span>
         <a onClick={toggleDarkMode} className="dark-mode-toggle">
-          <FontAwesomeIcon icon={darkModeEnabled ? darkMoon : lightMoon} />
+          <FontAwesomeIcon
+            className="margin-r-0-5em"
+            icon={darkMode ? darkMoon : lightMoon}
+          />
           Dark Mode
         </a>
       </span>

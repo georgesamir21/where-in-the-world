@@ -2,18 +2,19 @@
 @import "variables";
 
 body {
-  background-color: $light-gray;
+  background-color: var(--background);
   margin: 0;
   font-family: 'Nunito Sans', sans-serif;
+  color: var(--text-color);
 }
 
 button {
   border: none;
   border-radius: 8px;
   padding: 1em 2em;
-  color: $primary;
+  color: var(--text-color);
   box-shadow: $box-shadow;
-  background-color: $white;
+  background-color: var(--elements);
   font-size: 16px;
   cursor: pointer;
 
@@ -51,9 +52,13 @@ button {
   margin-bottom: 2em;
 }
 
+.margin-r-0-5em {
+  margin-right: 0.5em;
+}
+
 .tag {
-  background-color: white;
-  color: #111517;
+  background-color: var(--elements);
+  color: var(--text-color);
   padding: 0.2em 1em;
   margin-right: 0.5em;
   box-shadow: $box-shadow;
