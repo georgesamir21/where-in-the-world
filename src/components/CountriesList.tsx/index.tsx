@@ -1,12 +1,22 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, useEffect } from 'react';
 import { debounce } from 'lodash';
-import { useGetCountries } from '../../hooks/useGetCountries';
 import { CountryCard } from '../CountryCard';
+import { useCountriesContext } from '../../contexts/CountriesContext';
 import './style.scss';
 
 export const CountriesList = () => {
-  const countries = useGetCountries();
-  console.log(countries);
+  const {
+    countries,
+    error,
+    getAllCountries,
+    filterCountreisByRegion,
+    searchCountriesByName,
+  } = useCountriesContext();
+
+  useEffect(() => {
+    getAllCountries();
+  }, []);
+
   const regions = [
     {
       label: 'Africa',
@@ -29,13 +39,18 @@ export const CountriesList = () => {
       value: 'ocenia',
     },
   ];
-  const handleCountriesSearch = (e: ChangeEvent<HTMLInputElement>) => {
-    // TODO: Use Debounce...
+
+  const handleCountriesSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     const countryName = e.target.value;
-    console.log(countryName);
+    searchCountriesByName(countryName);
   };
 
-  if (!countries) return <h3>Loading ....</h3>;
+  const handleRegionSelectionChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    const region = e.target.value;
+    //@ts-ignore
+    filterCountreisByRegion(region);
+  };
+  if (!countries && !error) return <h2>Loading...</h2>;
   return (
     <>
       <section className="search-and-filter d-flex-row margin-b-2em">
@@ -44,9 +59,13 @@ export const CountriesList = () => {
           type="text"
           name="country"
           placeholder="Search for a country..."
-          onChange={debounce(handleCountriesSearch, 500)}
+          onChange={debounce(handleCountriesSearchChange, 500)}
         />
-        <select name="region" placeholder="Filter by Region">
+        <select
+          onChange={(e) => handleRegionSelectionChange(e)}
+          name="region"
+          placeholder="Filter by Region"
+        >
           {regions.map(({ label, value }) => (
             <option key={value} value={value}>
               {label}
@@ -54,11 +73,14 @@ export const CountriesList = () => {
           ))}
         </select>
       </section>
-      <section className="countries">
-        {countries.map((c) => (
-          <CountryCard key={c.name} {...c} />
-        ))}
-      </section>
+      {countries?.length && (
+        <section className="countries">
+          {countries.map((c) => (
+            <CountryCard key={c.name} {...c} />
+          ))}
+        </section>
+      )}
+      {error && <h2>{error}</h2>}
     </>
   );
 };

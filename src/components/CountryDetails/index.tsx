@@ -4,12 +4,10 @@ import { useHistory, useParams } from 'react-router-dom';
 import { useGetCountryDetails } from '../../hooks/useGetCountryByName';
 import { formatNumber } from '../../utils/formatNumber';
 import './style.scss';
-import { useQParam } from '../../hooks/useQParam';
 
 export const CountryDetails = () => {
   const { countryName } = useParams<{ countryName: string }>();
-  const capitalName = useQParam('capital');
-  const country = useGetCountryDetails(capitalName!);
+  const country = useGetCountryDetails(countryName!);
 
   const history = useHistory();
 
@@ -17,11 +15,11 @@ export const CountryDetails = () => {
     history.goBack();
   };
   const backButton = (
-    <div className="margin-b-2em">
+    <section className="margin-b-2em">
       <button onClick={goBack}>
         <FontAwesomeIcon icon={faArrowLeft} /> Back
       </button>
-    </div>
+    </section>
   );
   if (!country)
     return (
@@ -42,17 +40,17 @@ export const CountryDetails = () => {
     topLevelDomain,
     currencies,
     languages,
-    borders,
+    borders = ['Egypt', 'France', 'TEST'],
   } = country[0];
 
   return (
     <>
       {backButton}
-      <div className="country-details d-flex-row">
-        <div className="country-details__flag margin-b-2em">
+      <section className="country-details d-flex-row">
+        <section className="country-details__flag margin-b-2em">
           <img src={flag} alt={`${name} flag`} />
-        </div>
-        <div className="country-details__content">
+        </section>
+        <section className="country-details__content">
           <h3 className="country-details__content__title">{name}</h3>
           <section className="d-flex-row">
             <ul className="list-style-none country-details__content__info">
@@ -73,8 +71,6 @@ export const CountryDetails = () => {
                 <span className="bold">Capital:</span> {capital}
               </li>
             </ul>
-            {/* </section>
-          <section> */}
             <ul className="list-style-none country-details__content__info">
               <li>
                 <span className="bold">Top Level Domain:</span> {topLevelDomain}
@@ -90,13 +86,15 @@ export const CountryDetails = () => {
             </ul>
           </section>
           <section>
-            <span className="bold">Border Countries:</span>
+            <span className="bold">Border Countries: </span>
             {borders?.map((b) => (
-              <button>{b}</button>
+              <span key={b} className="tag">
+                {b}
+              </span>
             ))}
           </section>
-        </div>
-      </div>
+        </section>
+      </section>
     </>
   );
 };

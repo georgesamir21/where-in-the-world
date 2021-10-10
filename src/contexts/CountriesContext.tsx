@@ -10,6 +10,7 @@ type Props = {
 
 type Context = {
   countries: Country[] | null;
+  error: string | null;
   getAllCountries: () => void;
   searchCountriesByName: (name: string) => void;
   filterCountreisByRegion: (region: Region) => void;
@@ -17,28 +18,55 @@ type Context = {
 const CountriesContext = createContext<Context | null>(null);
 
 export const CountriesContextProvider = ({ children }: Props) => {
+  console.log('Countries Context Render***');
   const [countries, setCountries] = useState<Country[] | null>(null);
+  const [error, setError] = useState<string | null>(null);
   const appContext = useAppContext();
 
   const getAllCountries = async () => {
-    const data = await appContext.get<Country[]>('/all');
-    setCountries(data);
+    try {
+      const data = await appContext.get<Country[]>('/all');
+      setCountries(data);
+      setError(null);
+    } catch (error: any) {
+      if (error.response.status === 404) {
+        setCountries([]);
+        setError('No Countries Found');
+      }
+    }
   };
 
   const searchCountriesByName = async (name: string) => {
-    const data = await appContext.get<Country[]>(`/name/${name}`);
-    setCountries(data);
+    try {
+      const data = await appContext.get<Country[]>(`/name/${name}`);
+      setCountries(data);
+      setError(null);
+    } catch (error: any) {
+      if (error.response.status === 404) {
+        setCountries([]);
+        setError('No Countries Matches Your Search, Try Again!');
+      }
+    }
   };
 
   const filterCountreisByRegion = async (region: Region) => {
-    const data = await appContext.get<Country[]>(`/region/${region}`);
-    setCountries(data);
+    try {
+      const data = await appContext.get<Country[]>(`/region/${region}`);
+      setCountries(data);
+      setError(null);
+    } catch (error: any) {
+      if (error.response.status === 404) {
+        setCountries([]);
+        setError('No Countries Matches Your Search, Try Again!');
+      }
+    }
   };
 
   return (
     <CountriesContext.Provider
       value={{
         countries,
+        error,
         getAllCountries,
         filterCountreisByRegion,
         searchCountriesByName,

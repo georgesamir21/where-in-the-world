@@ -50,3 +50,12 @@ button {
 .margin-b-2em {
   margin-bottom: 2em;
 }
+
+.tag {
+  background-color: white;
+  color: #111517;
+  padding: 0.2em 1em;
+  margin-right: 0.5em;
+  box-shadow: $box-shadow;
+  border-radius: 4px;
+}

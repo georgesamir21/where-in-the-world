@@ -1,8 +1,9 @@
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route } from 'react-router-dom';
 import { Header } from './components/Header';
 import { CountriesList } from './components/CountriesList.tsx';
 import { CountryDetails } from './components/CountryDetails';
 import { AppContextProvider } from './contexts/AppContext';
+import { CountriesContextProvider } from './contexts/CountriesContext';
 
 function App() {
   const baseURL = process.env.REACT_APP_BASE_URL;
@@ -15,9 +16,14 @@ function App() {
       <main className="container">
         <BrowserRouter>
           <Route path="/" exact>
-            <CountriesList />
+            <Redirect to="/countries" />
           </Route>
-          <Route path="/:countryName">
+          <Route path="/countries">
+            <CountriesContextProvider>
+              <CountriesList />
+            </CountriesContextProvider>
+          </Route>
+          <Route path="countries/:countryName">
             <CountryDetails />
           </Route>
         </BrowserRouter>

@@ -19,11 +19,10 @@ export const CountryCard = ({
 }: Props) => {
   const history = useHistory();
   const navigateToDetailsPage = () => {
-    history.push(`${name}?capital=${capital}`);
+    history.push(name!);
   };
   return (
     <div className="card" onClick={navigateToDetailsPage}>
-      {/* <Link to={name!}> */}
       <div className="card__image">
         <img src={flag} alt={`${name} flag`} />
       </div>
@@ -32,7 +31,7 @@ export const CountryCard = ({
         <ul className="details list-style-none">
           <li>
             <span className="bold">Population: </span>
-            {population ? formatNumber(population) : 'N/A'}
+            {formatNumber(population)}
           </li>
           <li>
             <span className="bold">Region: </span>
@@ -44,7 +43,6 @@ export const CountryCard = ({
           </li>
         </ul>
       </div>
-      {/* </Link> */}
     </div>
   );
 };
