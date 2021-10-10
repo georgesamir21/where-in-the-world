@@ -1,0 +1,29 @@
+.country-details {
+    &__flag {
+        width: 40%;
+        img {
+            width: 100%;
+        }
+
+        @media only screen and (max-width: 768px) {
+            width: 100%;
+        }
+    }
+
+    &__content {
+        width: 55%;
+        @media only screen and (max-width: 768px) {
+            width: 100%;
+        }
+        &__title {
+            margin-top: 0;
+        }
+
+        &__info {
+            width: 50%;
+            @media only screen and (max-width: 768px) {
+                width: 100%;
+            }
+        }
+    }
+}

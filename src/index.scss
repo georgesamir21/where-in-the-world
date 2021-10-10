@@ -7,6 +7,21 @@ body {
   font-family: 'Nunito Sans', sans-serif;
 }
 
+button {
+  border: none;
+  border-radius: 8px;
+  padding: 1em 2em;
+  color: $primary;
+  box-shadow: $box-shadow;
+  background-color: $white;
+  font-size: 16px;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+}
+
 .container {
   padding: 1em 2em;
 
@@ -28,8 +43,10 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-.space-between {
-  justify-content: space-between;
+
+.margin-b-2em {
+  margin-bottom: 2em;
 }

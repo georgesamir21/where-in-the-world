@@ -6,6 +6,7 @@
     margin-bottom: 2.2em;
     margin-right: 2.2em;
     width: calc(25% - 2.2em);
+    cursor: pointer;
 
     @media screen and (max-width: 1024px){
         width: calc(33% - 2.2em);

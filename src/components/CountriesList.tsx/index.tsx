@@ -37,7 +37,7 @@ export const CountriesList = () => {
   if (!countries) return <h3>Loading ....</h3>;
   return (
     <>
-      <section className="search-and-filter d-flex-row space-between">
+      <section className="search-and-filter d-flex-row margin-b-2em">
         <input
           className="search-bar"
           type="text"
