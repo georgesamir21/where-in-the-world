@@ -15,7 +15,7 @@ export const CountryCard = ({
   name,
   region,
   capital,
-  population = 80000,
+  population,
 }: Props) => {
   const history = useHistory();
   const navigateToDetailsPage = () => {

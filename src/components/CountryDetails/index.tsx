@@ -4,11 +4,35 @@ import { useHistory, useParams } from 'react-router-dom';
 import { useGetCountryDetails } from '../../hooks/useGetCountryByName';
 import { formatNumber } from '../../utils/formatNumber';
 import './style.scss';
+import { useQParam } from '../../hooks/useQParam';
 
 export const CountryDetails = () => {
   const { countryName } = useParams<{ countryName: string }>();
+  const capitalName = useQParam('capital');
+  const country = useGetCountryDetails(capitalName!);
+
+  const history = useHistory();
+
+  const goBack = () => {
+    history.goBack();
+  };
+  const backButton = (
+    <div className="margin-b-2em">
+      <button onClick={goBack}>
+        <FontAwesomeIcon icon={faArrowLeft} /> Back
+      </button>
+    </div>
+  );
+  if (!country)
+    return (
+      <>
+        {backButton}
+        <h2>Loading...</h2>
+      </>
+    );
+
   const {
-    flag,
+    flag = process.env.PUBLIC_URL + '/images/flag-placeholder.jpg',
     name,
     nativeName,
     population,
@@ -19,22 +43,11 @@ export const CountryDetails = () => {
     currencies,
     languages,
     borders,
-  } = useGetCountryDetails(countryName);
-  console.log(countryName);
-
-  const history = useHistory();
-
-  const goBack = () => {
-    history.goBack();
-  };
+  } = country[0];
 
   return (
     <>
-      <div className="margin-b-2em">
-        <button onClick={goBack}>
-          <FontAwesomeIcon icon={faArrowLeft} /> Back
-        </button>
-      </div>
+      {backButton}
       <div className="country-details d-flex-row">
         <div className="country-details__flag margin-b-2em">
           <img src={flag} alt={`${name} flag`} />
@@ -48,7 +61,7 @@ export const CountryDetails = () => {
               </li>
               <li>
                 <span className="bold">Population:</span>
-                {formatNumber(population)}
+                {formatNumber(population!)}
               </li>
               <li>
                 <span className="bold">Region:</span> {region}
@@ -68,17 +81,17 @@ export const CountryDetails = () => {
               </li>
               <li>
                 <span className="bold">Currencies:</span>{' '}
-                {currencies.map((currency) => currency.name).join(', ')}
+                {currencies?.map((currency) => currency.name).join(', ')}
               </li>
               <li>
                 <span className="bold">Languages:</span>{' '}
-                {languages.map((lang) => lang.name).join(', ')}
+                {languages?.map((lang) => lang.name).join(', ')}
               </li>
             </ul>
           </section>
           <section>
             <span className="bold">Border Countries:</span>
-            {borders.map((b) => (
+            {borders?.map((b) => (
               <button>{b}</button>
             ))}
           </section>

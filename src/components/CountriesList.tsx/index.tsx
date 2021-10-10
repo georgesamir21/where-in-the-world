@@ -1,4 +1,5 @@
 import { ChangeEvent } from 'react';
+import { debounce } from 'lodash';
 import { useGetCountries } from '../../hooks/useGetCountries';
 import { CountryCard } from '../CountryCard';
 import './style.scss';
@@ -43,7 +44,7 @@ export const CountriesList = () => {
           type="text"
           name="country"
           placeholder="Search for a country..."
-          onChange={(e) => handleCountriesSearch(e)}
+          onChange={debounce(handleCountriesSearch, 500)}
         />
         <select name="region" placeholder="Filter by Region">
           {regions.map(({ label, value }) => (
