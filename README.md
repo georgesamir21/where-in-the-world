@@ -1,46 +1,90 @@
-# Getting Started with Create React App
+# Zyda Frontend Test - REST Countries API with color theme switcher
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a solution to the [REST Countries API with color theme switcher task](https://github.com/zydalabs/FrontEnd-Test). Zyda Frontend Task helps us test your coding skills by building a realistic project.
 
-## Available Scripts
+## Table of contents
 
-In the project directory, you can run:
+- [Overview](#overview)
+  - [The task](#the-task)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+- [Author](#author)
 
-### `yarn start`
+**Note: Delete this note and update the table of contents based on what sections you keep.**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Overview
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### The task
 
-### `yarn test`
+Users should be able to:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- See all countries from the API on the homepage
+- Search for a country using an `input` field
+- Filter countries by region
+- Click on a country to see more detailed information on a separate page
+- Click back button to return to countries page from the details page
+- Toggle the color scheme between light and dark mode _(optional)_
 
-### `yarn build`
+### Screenshot
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![desktop main dark](./screenshots/main-dark.png)
+![desktop details dark](./screenshots/details-dark.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Links
 
-### `yarn eject`
+- Solution URL: [GitHub](https://github.com/georgesamir21/where-in-the-world)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## My process
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Built with
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Semantic HTML5 markup
+- SCSS custom properties
+- Flexbox
+- Mobile-first workflow
+- [React](https://reactjs.org/) - JS library
+- [TypeScript](http://typescriptlang.org/)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### What I learned
 
-## Learn More
+Toggle DarkTheme
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```ts
+export const changeTheme = (theme: Theme) => {
+  let cssRule;
+  switch (theme) {
+    case 'dark':
+      cssRule = `
+            :root {
+                --background: hsl(207, 26%, 17%);
+                --text-color: hsl(0, 0%, 100%);
+                --elements: hsl(209, 23%, 22%);
+                --input-color: hsl(0, 0%, 100%);
+            }
+            `;
+      break;
+    case 'light':
+    default:
+      cssRule = `
+            :root {
+                --background: hsl(0, 0%, 98%);
+                --text-color: hsl(200, 15%, 8%);
+                --elements: hsl(0, 0%, 100%);
+                --input-color: hsl(0, 0%, 52%);
+            }
+            `;
+      break;
+  }
+  const styleSheets = document.styleSheets[document.styleSheets.length - 1];
+  styleSheets.insertRule(cssRule, styleSheets.cssRules.length);
+};
+```
+
+## Author
+
+- [George Samir](https://github.com/georgesamir21)

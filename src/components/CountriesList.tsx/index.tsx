@@ -16,6 +16,7 @@ export const CountriesList = () => {
 
   useEffect(() => {
     getAllCountries();
+    // eslint-disable-next-line
   }, []);
 
   const regions = [

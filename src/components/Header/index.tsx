@@ -3,7 +3,7 @@ import { faMoon as lightMoon } from '@fortawesome/free-regular-svg-icons';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './style.scss';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { changeTheme } from '../../utils/branding';
 
 export const Header = () => {
@@ -24,13 +24,13 @@ export const Header = () => {
     <header className="header d-flex-row">
       <h1 className="app-title">Where in the world?</h1>
       <span>
-        <a onClick={toggleDarkMode} className="dark-mode-toggle">
+        <span onClick={toggleDarkMode} className="dark-mode-toggle">
           <FontAwesomeIcon
             className="margin-r-0-5em"
             icon={darkMode ? darkMoon : lightMoon}
           />
           Dark Mode
-        </a>
+        </span>
       </span>
     </header>
   );
